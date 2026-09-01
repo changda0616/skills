@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "verdict": { "type": "string", "enum": ["met", "not_met", "cannot_verify"] },
+          "soundness": { "type": "string", "enum": ["sound", "questionable", "wrong"] },
+          "evidence": { "type": "string" },
+          "reasoning": { "type": "string" }
+        },
+        "required": ["id", "verdict", "soundness", "evidence", "reasoning"]
+      }
+    },
+    "criteria_gaps": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["criteria", "criteria_gaps"]
+}
